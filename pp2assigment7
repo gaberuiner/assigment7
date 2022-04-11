@@ -1,0 +1,36 @@
+3)
+import pygame
+pygame.init()
+size = width, height = (1000, 600)
+screen = pygame.display.set_mode(size)
+clock = pygame.time.Clock()
+FPS = 30
+RED = (255, 0, 0)
+BLACK = (0, 0, 0)
+x_coordinate = 100
+y_coordinate = 100
+
+
+done = False
+rect_change_x = 20
+rect_change_y = 20
+while not done:
+    screen.fill(BLACK)
+    pygame.draw.circle(screen, RED,(x_coordinate, y_coordinate), 25)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+            y_coordinate -= 20
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+            y_coordinate += 20
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+            x_coordinate -= 20
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+            x_coordinate += 20
+    clock.tick(60)
+    if x_coordinate >= 980 or x_coordinate <= 20 or y_coordinate >= 580 or y_coordinate <=20:
+        x_coordinate = 100
+        y_coordinate = 100
+
+    pygame.display.flip()

@@ -1,3 +1,32 @@
+2)
+import pygame
+from pygame import mixer_music as ms
+pygame.init()
+ms.load('C:\\Users\\asus\\Downloads\\music\\Mortal Kombat - Maine Theme(original).mp3')
+vol = 1
+ms.play(0)
+done = False
+size = width, height = (1000, 600)
+screen = pygame.display.set_mode(size)
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+            vol += 0.2
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+            vol -= 0.2
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            ms.pause()
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_1:
+            ms.unpause()    
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_TAB:
+            ms.load('C:\\Users\\asus\\Downloads\\music\\Flying Steps - We Are Electric.mp3')
+
+
+
+
+pygame.quit()
 3)
 import pygame
 pygame.init()
